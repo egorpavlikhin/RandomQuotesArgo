@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: randomquotes
-        image: egorpavlikhin/randomquotes:${{ steps.determine_version.outputs.semVer }}
+        image: egorpavlikhin/randomquotes:master
         ports:
         - containerPort: 80
