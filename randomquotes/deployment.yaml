@@ -19,4 +19,3 @@ spec:
         image: egorpavlikhin/randomquotes:${{ steps.determine_version.outputs.semVer }}
         ports:
         - containerPort: 80
-```
