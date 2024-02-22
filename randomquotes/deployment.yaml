@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randomquotes
+  labels:
+    app: randomquotes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: randomquotes
+  template:
+    metadata:
+      labels:
+        app: randomquotes
+    spec:
+      containers:
+      - name: randomquotes
+        image: egorpavlikhin/randomquotes:${{ steps.determine_version.outputs.semVer }}
+        ports:
+        - containerPort: 80
+```

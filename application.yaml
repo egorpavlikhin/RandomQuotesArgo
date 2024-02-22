@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: randomquotes
+  namespace: randomquotes
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/egorpavlikhin/RandomQuotesArgo.git
+    targetRevision: HEAD
+    path: dev
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: randomquotes
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
